@@ -1,0 +1,6 @@
+bazel-bin
+bazel-bazel_scala
+bazel-out
+bazel-testlogs
+.ijwb
+.clwb
