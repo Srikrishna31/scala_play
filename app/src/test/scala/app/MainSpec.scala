@@ -1,4 +1,4 @@
-package bazeltest
+package app
 
 import org.scalatest._
 
