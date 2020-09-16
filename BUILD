@@ -5,3 +5,11 @@ scala_binary(
         "//app",
     ],
 )
+
+test_suite(
+    name = "app-test",
+    tests = [
+        "//app:test-app",
+        "//module:test-module",
+    ],
+)
