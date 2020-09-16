@@ -1,4 +1,4 @@
-package othermodule
+package module
 
 class Worker {
 

@@ -1,7 +1,7 @@
-package bazeltest
+package app
 
 import org.joda.time.DateTime
-import othermodule.Worker
+import module.Worker
 
 object Main extends App {
   println("IN MAIN now: "+DateTime.now.plusYears(11))
