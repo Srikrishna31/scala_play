@@ -10,16 +10,6 @@ http_archive(
     url = "https://github.com/bazelbuild/bazel-skylib/releases/download/{}/bazel-skylib.{}.tar.gz".format(skylib_version, skylib_version),
 )
 
-load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
-
-java_import_external(
-    name = "joda-time",
-    jar_sha256 = "4ee73e7ff8e2df0d4e3408cf1a1527a59f265dd9fb43fb9b2eb818d87f93759e",
-    jar_urls = [
-        "https://repo1.maven.org/maven2/joda-time/joda-time/2.10.5/joda-time-2.10.5.jar",
-    ],
-)
-
 rules_scala_version = "0cb1d71266d00ba80560477eb6d298184eb3d1f7"
 
 http_archive(
@@ -55,3 +45,7 @@ scala_repositories((
         "scala_reflect": "56b609e1bab9144fb51525bfa01ccd72028154fc40a58685a1e9adcbe7835730",
     },
 ))
+
+load("//third_party:dependencies.bzl", "load_deps")
+
+load_deps()
