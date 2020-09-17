@@ -5,6 +5,7 @@ scala_library(
     deps = [
         "//module",
         "@joda-time",
+        "@play",
     ],
 )
 
