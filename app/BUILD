@@ -4,8 +4,11 @@ scala_library(
     visibility = ["//:__pkg__"],
     deps = [
         "//module",
+        "@beautiful-scala",
         "@joda-time",
         "@play",
+        "@scala-js",
+        "@scalaz",
     ],
 )
 
