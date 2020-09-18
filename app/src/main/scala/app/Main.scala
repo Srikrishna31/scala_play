@@ -2,16 +2,14 @@ package app
 
 import org.joda.time.DateTime
 import module.Worker
+import javax.inject.Inject
 
-object Main extends App {
-  println("IN MAIN now: "+DateTime.now.plusYears(11))
-  val worker = new Worker
-  worker.doSomething
+import scala.concurrent.Future
+import scala.concurrent.duration._
+import play.api.mvc._
+import play.api.http.HttpEntity
+import play.api.libs.ws._
 
+import scala.concurrent.ExecutionContext
 
-  def status = "OKi"
-}
-class Main
-{
-
-}
+class Application @Inject() (ws: WSClient, val controllerComponents: ControllerComponents) extends BaseController {}
