@@ -6,6 +6,11 @@ scala_binary(
     ],
 )
 
+alias(
+    name = "package-app",
+    actual = ":App_deploy.jar",
+)
+
 test_suite(
     name = "app-test",
     tests = [
