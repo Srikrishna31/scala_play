@@ -8,6 +8,7 @@ scala_library(
         "@javax-inject",
         "@joda-time",
         "@play",
+        "@play-ahc-ws",
         "@play-json",
         "@play-slick",
         "@play-twirl",
