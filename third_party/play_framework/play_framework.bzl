@@ -53,6 +53,36 @@ def _load_play_ws():
             jar_sha256 = "6d2b0fae07ed37e494241c803ca1f088a97cf9520758355a803d0528022c9905",
         )
 
+def _load_play_ws_standalone():
+    if "play-ws-standalone" not in native.existing_rules():
+        java_import_external(
+            name = "play-ws-standalone",
+            jar_urls = [
+                "https://repo1.maven.org/maven2/com/typesafe/play/play-ws-standalone_2.12/2.1.2/play-ws-standalone_2.12-2.1.2.jar",
+            ],
+            jar_sha256 = "97b73ee65109eaf524b8eb679b15267e7da71c353818c233019b7c4ea781c2af",
+        )
+
+def _load_play_ws_standalone_json():
+    if "play-ws-standalone-json" not in native.existing_rules():
+        java_import_external(
+            name = "play-ws-standalone-json",
+            jar_urls = [
+                "https://repo1.maven.org/maven2/com/typesafe/play/play-ws-standalone-json_2.12/2.1.2/play-ws-standalone-json_2.12-2.1.2.jar",
+            ],
+            jar_sha256 = "6d3827abba59e6a82481baa6142873478e8a67897f4909e683e9d56a19982af6",
+        )
+
+def _load_play_ws_standalone_xml():
+    if "play-ws-standalone-xml" not in native.existing_rules():
+        java_import_external(
+            name = "play-ws-standalone-xml",
+            jar_urls = [
+                "https://repo1.maven.org/maven2/com/typesafe/play/play-ws-standalone-xml_2.12/2.1.2/play-ws-standalone-xml_2.12-2.1.2.jar",
+            ],
+            jar_sha256 = "34629697469d07c7b1e0d83762babb8864653e441393c26b5f2af73a1b3c665b",
+        )
+
 def _load_play_slick():
     #Database access
     if "play-slick" not in native.existing_rules():
@@ -67,6 +97,9 @@ def _load_play_slick():
 def load_play_framework():
     _load_play()
     _load_play_ahc_ws()
+    _load_play_ws_standalone()
+    _load_play_ws_standalone_json()
+    _load_play_ws_standalone_xml()
     _load_play_json()
     _load_play_slick()
     _load_play_twirl()
