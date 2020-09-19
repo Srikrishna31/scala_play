@@ -1,0 +1,31 @@
+#filegroup(
+#    name = "play-framework",
+#    srcs = [
+#        "@play",
+#        "@play-ahc-ws",
+#        "@play-json",
+#        "@play-slick",
+#        "@play-twirl",
+#        "@play-ws",
+#        "@play-ws-standalone",
+#        "@play-ws-standalone-json",
+#        "@play-ws-standalone-xml",
+#    ],
+#    visibility = ["//visibility:public"],
+#)
+
+scala_library(
+    name = "play-framework",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@play",
+        "@play-ahc-ws",
+        "@play-json",
+        "@play-slick",
+        "@play-twirl",
+        "@play-ws",
+        "@play-ws-standalone",
+        "@play-ws-standalone-json",
+        "@play-ws-standalone-xml",
+    ],
+)
