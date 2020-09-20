@@ -1,23 +1,6 @@
-#filegroup(
-#    name = "play-framework",
-#    srcs = [
-#        "@play",
-#        "@play-ahc-ws",
-#        "@play-json",
-#        "@play-slick",
-#        "@play-twirl",
-#        "@play-ws",
-#        "@play-ws-standalone",
-#        "@play-ws-standalone-json",
-#        "@play-ws-standalone-xml",
-#    ],
-#    visibility = ["//visibility:public"],
-#)
-
-scala_library(
+scala_import(
     name = "play-framework",
-    visibility = ["//visibility:public"],
-    deps = [
+    jars = [
         "@play",
         "@play-ahc-ws",
         "@play-json",
@@ -28,4 +11,5 @@ scala_library(
         "@play-ws-standalone-json",
         "@play-ws-standalone-xml",
     ],
+    visibility = ["//visibility:public"],
 )
