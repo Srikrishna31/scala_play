@@ -1,0 +1,9 @@
+scala_import(
+    name = "akka",
+    jars = [
+        "@akka-http",
+        "@akka-actor",
+        "@akka-stream",
+    ],
+    visibility = ["//visibility:public"],
+)
