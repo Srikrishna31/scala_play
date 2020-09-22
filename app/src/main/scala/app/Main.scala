@@ -33,20 +33,17 @@ object Main {
     // If running in Play, environment should be injected
     val environment        = Environment(new File("."), this.getClass.getClassLoader, Mode.Prod)
     val wsConfig           = AhcWSClientConfigFactory.forConfig(configuration.underlying, environment.classLoader)
-    val mat                = Materializer(ActorSystem("test"))
+    val actorSystem        = ActorSystem("test")
+    val mat                = Materializer(actorSystem)
     val ws = new StandaloneAhcWSClient(new DefaultAsyncHttpClient())(mat)
     val request = ws.url(" https://api.github.com/zen")
 
-    val resp = request.get()
+    val resp = request.get().map(_.body)
 
-
-    println(resp.onComplete(r => println(r)))
-//    resp.onComplete(r =>  {
-//      println(r.json)
-//    })
-
-
-    //ws.close()
+    resp.onComplete (r => {
+      println(r)
+      ws.close()
+      actorSystem.terminate()
+    })
   }
-
 }
