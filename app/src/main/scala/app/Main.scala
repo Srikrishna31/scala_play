@@ -6,7 +6,7 @@ import org.joda.time.DateTime
 import module.Worker
 import javax.inject.Inject
 import play.api.{Configuration, Environment, Mode}
-
+import play.api.Play
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import play.api.mvc._
@@ -28,18 +28,23 @@ object Main {
   implicit val ec: scala.concurrent.ExecutionContext = scala.concurrent.ExecutionContext.global
 
   def main(args: Array[String]): Unit = {
-//    val configuration = Configuration("ws.followRedirects" -> true).withFallback(Configuration.reference)
-//
-//    // If running in Play, environment should be injected
-//    val environment        = Environment(new File("."), this.getClass.getClassLoader, Mode.Prod)
-//    val wsConfig           = AhcWSClientConfigFactory.forConfig(configuration.underlying, environment.classLoader)
+    val configuration = Configuration("ws.followRedirects" -> true).withFallback(Configuration.reference)
+
+    // If running in Play, environment should be injected
+    val environment        = Environment(new File("."), this.getClass.getClassLoader, Mode.Prod)
+    val wsConfig           = AhcWSClientConfigFactory.forConfig(configuration.underlying, environment.classLoader)
     val mat                = Materializer(ActorSystem("test"))
     val ws = new StandaloneAhcWSClient(new DefaultAsyncHttpClient())(mat)
     val request = ws.url(" https://api.github.com/zen")
 
     val resp = request.get()
 
-    resp.foreach(println)
+
+    println(resp.onComplete(r => println(r)))
+//    resp.onComplete(r =>  {
+//      println(r.json)
+//    })
+
 
     //ws.close()
   }

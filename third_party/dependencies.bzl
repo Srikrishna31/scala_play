@@ -7,6 +7,7 @@ load("//third_party/reactivestreams:reactivestreams.bzl", "load_reactivestreams"
 load("//third_party/scala_js:scala_js.bzl", "load_scala_js")
 load("//third_party/scalaz:scalaz.bzl", "load_scalaz")
 load("//third_party/slf4j:slf4j.bzl", "load_slf4j")
+load("//third_party/sslconfig:sslconfig.bzl", "load_sslconfig")
 
 def load_deps():
     load_akka()
@@ -18,3 +19,4 @@ def load_deps():
     load_scala_js()
     load_scalaz()
     load_slf4j()
+    load_sslconfig()
