@@ -33,7 +33,7 @@ object Main {
     val wsConfig           = AhcWSClientConfigFactory.forConfig(configuration.underlying, environment.classLoader)
     val mat                = Materializer
     val wsClient: WSClient = AhcWSClient(wsConfig)(mat)
-    val ws = new StandaloneAhcWSClient()(Materializer)
+    val ws = new StandaloneAhcWSClient(wsConfig)(Materializer)
     val request = ws.url(" https://api.github.com/zen")
 
     val resp = request.get()

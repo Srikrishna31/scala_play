@@ -5,6 +5,7 @@ SUFFIX = "com/typesafe/"
 
 URL_PREF = ARTIFACTORY + SUFFIX
 PLAY_PREF = URL_PREF + "play/"
+AKKA_PREF = URL_PREF + "akka/"
 
 def add_java_dependencies(deps):
     for dep in deps:
