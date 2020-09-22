@@ -1,6 +1,8 @@
 scala_import(
     name = "play-framework",
     jars = [
+        "@async-http",
+        "@config",
         "@play",
         "@play-ahc-ws",
         "@play-json",
@@ -10,6 +12,10 @@ scala_import(
         "@play-ws-standalone",
         "@play-ws-standalone-json",
         "@play-ws-standalone-xml",
+        "@shaded-asynchttpclient",
+        "@shaded-oauth",
+        "@play-akka-http-server",
+        "//third_party/akka",
     ],
     visibility = ["//visibility:public"],
 )
