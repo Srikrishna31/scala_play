@@ -13,9 +13,11 @@ import play.api.mvc._
 import play.api.http.HttpEntity
 import play.api.libs.ws.ahc.{AhcWSClientConfigFactory, StandaloneAhcWSClient}
 import play.api.libs.ws.WSClient
+import akka.actor.{ActorSystem, ActorSystemImpl}
 import akka.stream.Materializer
-import scala.concurrent.ExecutionContext
 
+import scala.concurrent.ExecutionContext
+import play.shaded.ahc.org.asynchttpclient.DefaultAsyncHttpClient
 
 class Main @Inject() (ws: WSClient, val controllerComponents: ControllerComponents) extends BaseController {
 
@@ -31,9 +33,8 @@ object Main {
     // If running in Play, environment should be injected
     val environment        = Environment(new File("."), this.getClass.getClassLoader, Mode.Prod)
     val wsConfig           = AhcWSClientConfigFactory.forConfig(configuration.underlying, environment.classLoader)
-    val mat                = Materializer
-    val wsClient: WSClient = AhcWSClient(wsConfig)(mat)
-    val ws = new StandaloneAhcWSClient(wsConfig)(Materializer)
+    val mat                = Materializer(ActorSystem("test"))
+    val ws = new StandaloneAhcWSClient(new DefaultAsyncHttpClient())(mat)
     val request = ws.url(" https://api.github.com/zen")
 
     val resp = request.get()
