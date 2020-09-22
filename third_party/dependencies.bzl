@@ -3,8 +3,10 @@ load("//third_party/beautiful_scala:beautiful_scala.bzl", "load_beautiful_scala"
 load("//third_party/javax_inject:javax_inject.bzl", "load_javax_inject")
 load("//third_party/joda_time:joda_time.bzl", "load_joda_time")
 load("//third_party/play_framework:play_framework.bzl", "load_play_framework")
+load("//third_party/reactivestreams:reactivestreams.bzl", "load_reactivestreams")
 load("//third_party/scala_js:scala_js.bzl", "load_scala_js")
 load("//third_party/scalaz:scalaz.bzl", "load_scalaz")
+load("//third_party/slf4j:slf4j.bzl", "load_slf4j")
 
 def load_deps():
     load_akka()
@@ -12,5 +14,7 @@ def load_deps():
     load_javax_inject()
     load_joda_time()
     load_play_framework()
+    load_reactivestreams()
     load_scala_js()
     load_scalaz()
+    load_slf4j()
