@@ -12,7 +12,6 @@ import scala.concurrent.duration._
 import play.api.mvc._
 import play.api.http.HttpEntity
 import play.api.libs.ws.ahc.{AhcWSClientConfigFactory, StandaloneAhcWSClient}
-import play.api.libs.ws._
 import play.api.libs.ws.WSClient
 import akka.stream.Materializer
 import scala.concurrent.ExecutionContext
