@@ -6,28 +6,20 @@ import org.joda.time.DateTime
 import module.Worker
 import javax.inject.Inject
 import play.api.{Configuration, Environment, Mode}
-import play.api.Play
-import scala.concurrent.Future
-import scala.concurrent.duration._
+
+import scala.concurrent.{Await, ExecutionContext}
+import scala.concurrent.duration.Duration
 import play.api.mvc._
-import play.api.http.HttpEntity
 import play.api.libs.ws.ahc.{AhcWSClientConfigFactory, StandaloneAhcWSClient}
 import play.api.libs.ws.WSClient
-import akka.actor.{ActorSystem, ActorSystemImpl}
+import akka.actor.ActorSystem
 import akka.stream.Materializer
-
-import scala.concurrent.ExecutionContext
 import play.shaded.ahc.org.asynchttpclient.DefaultAsyncHttpClient
 
 class Main @Inject() (ws: WSClient, val controllerComponents: ControllerComponents) extends BaseController {
+  implicit val ec: ExecutionContext = ExecutionContext.global
 
-
-}
-
-object Main {
-  implicit val ec: scala.concurrent.ExecutionContext = scala.concurrent.ExecutionContext.global
-
-  def main(args: Array[String]): Unit = {
+  def getResponse(url: String) : String = {
     val configuration = Configuration("ws.followRedirects" -> true).withFallback(Configuration.reference)
 
     // If running in Play, environment should be injected
@@ -36,14 +28,26 @@ object Main {
     val actorSystem        = ActorSystem("test")
     val mat                = Materializer(actorSystem)
     val ws = new StandaloneAhcWSClient(new DefaultAsyncHttpClient())(mat)
-    val request = ws.url(" https://api.github.com/zen")
+    val request = ws.url(url)
 
     val resp = request.get().map(_.body)
+    var res = ""
 
     resp.onComplete (r => {
-      println(r)
-      ws.close()
-      actorSystem.terminate()
+      res = r.get
     })
+
+    Await.ready(resp, Duration.Inf)
+    ws.close()
+    actorSystem.terminate()
+
+    res
+  }
+}
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    val m = new Main(null, null)
+    println(m.getResponse(" https://api.github.com/zen"))
   }
 }
