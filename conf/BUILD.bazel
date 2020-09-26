@@ -1,0 +1,15 @@
+filegroup(
+    name = "routes",
+    srcs = [
+        "routes",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "app-conf",
+    srcs = [
+        "application.conf",
+    ],
+    visibility = ["//visibility:public"],
+)

@@ -1,4 +1,4 @@
-package app
+package controllers
 
 import org.scalatest._
 

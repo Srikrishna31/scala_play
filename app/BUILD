@@ -1,6 +1,6 @@
 scala_library(
-    name = "app",
-    srcs = ["src/main/scala/app/Main.scala"],
+    name = "controllers",
+    srcs = ["src/main/scala/controllers/HomeController.scala"],
     visibility = ["//:__pkg__"],
     deps = [
         "//module",
@@ -15,7 +15,7 @@ scala_library(
 
 scala_test(
     name = "test-app",
-    srcs = ["src/test/scala/app/MainSpec.scala"],
+    srcs = ["src/test/scala/controllers/MainSpec.scala"],
     visibility = ["//visibility:private"],
     deps = [":app"],
 )

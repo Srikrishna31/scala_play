@@ -1,8 +1,16 @@
 scala_binary(
     name = "App",
-    main_class = "app.Main",
+    jvm_flags = [
+        "-Dhttp.port=9000",
+        "-Dapplication.name=my-service",
+    ],
+    main_class = "play.core.server.ProdServerStart",
+    resource_strip_prefix = "conf",
+    resources = [
+        "//conf:app-conf",
+    ],
     deps = [
-        "//app",
+        "//app:controllers",
     ],
 )
 
