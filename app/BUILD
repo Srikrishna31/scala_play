@@ -1,6 +1,9 @@
 scala_library(
     name = "controllers",
-    srcs = ["src/main/scala/controllers/HomeController.scala"],
+    srcs = [
+        "src/main/scala/controllers/HomeController.scala",
+        ":routes-basic",
+    ],
     visibility = ["//:__pkg__"],
     deps = [
         "//module",
@@ -11,6 +14,15 @@ scala_library(
         "@scala-js",
         "@scalaz",
     ],
+)
+
+play_routes(
+    name = "routes-basic",
+    srcs = [
+        "//conf:route-files",
+    ],
+    generate_reverse_router = True,
+    include_play_imports = True,
 )
 
 scala_test(
