@@ -2,4 +2,4 @@ startup --expand_configs_in_place
 
 common --color=yes
 build --verbose_failures
-build --sandbox_debug
+# build --sandbox_debug
