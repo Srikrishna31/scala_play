@@ -1,6 +1,7 @@
-load("//third_party:java_deps.bzl", "PLAY_PREF", "add_java_dependencies")
+load("//third_party:java_deps.bzl", "ARTIFACTORY", "PLAY_PREF", "add_java_dependencies")
 load("//third_party/play_framework/async_http:async_http.bzl", "load_async_http")
 load("//third_party/play_framework/config:config.bzl", "load_config")
+load("@rules_jvm_external//:defs.bzl", "maven_install")
 
 deps = (
     ("play", PLAY_PREF + "play_2.12/2.8.2/play_2.12-2.8.2.jar", "5a9d5f9c26b10e74390048aed19f0a6694f04f290b5f8f05e9f3cf45e902746e"),
@@ -19,6 +20,15 @@ deps = (
     ("shaded-asynchttpclient", PLAY_PREF + "shaded-asynchttpclient/2.1.2/shaded-asynchttpclient-2.1.2.jar", "a33a3cbc18d7da3a7c370b1ade1d84a93c0a8815cbb9937b140a2b71350e0274"),
     ("shaded-oauth", PLAY_PREF + "shaded-oauth/2.1.2/shaded-oauth-2.1.2.jar", "23df6e444d3251f01faa997beef44aefb3e29465b641cb232bbb672fd478a29c"),
 )
+
+def load_play_framework1():
+    maven_install(
+        artifacts = [
+        ],
+        repositories = [
+            ARTIFACTORY,
+        ],
+    )
 
 def load_play_framework():
     add_java_dependencies(deps)

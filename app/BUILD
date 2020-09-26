@@ -1,10 +1,19 @@
 scala_library(
+    name = "app",
+    srcs = [],
+    visibility = ["//:__pkg__"],
+    deps = [
+        ":controllers",
+        ":model",
+    ],
+)
+
+scala_library(
     name = "controllers",
     srcs = [
         "src/main/scala/controllers/HomeController.scala",
         ":routes-basic",
     ],
-    visibility = ["//:__pkg__"],
     deps = [
         "//module",
         "//third_party/play_framework:play-framework",
@@ -13,6 +22,13 @@ scala_library(
         "@joda-time",
         "@scala-js",
         "@scalaz",
+    ],
+)
+
+scala_library(
+    name = "model",
+    srcs = [],
+    deps = [
     ],
 )
 
