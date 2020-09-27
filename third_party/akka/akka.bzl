@@ -1,4 +1,5 @@
-load("//third_party:java_deps.bzl", "AKKA_PREF", "add_java_dependencies")
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+load("//third_party:java_deps.bzl", "AKKA_PREF", "ARTIFACTORY", "add_java_dependencies")
 
 deps = (
     ("akka-actor", AKKA_PREF + "akka-actor_2.12/2.6.9/akka-actor_2.12-2.6.9.jar", "cb875fa0f30a481509f00180acefd83eeac6db4e97996a6ff2996273e0bd227c"),
@@ -8,3 +9,15 @@ deps = (
 
 def load_akka():
     add_java_dependencies(deps)
+
+#    maven_install(
+#        name = "maven",
+#        artifacts = [
+#            "com.typesafe.akka:akka-actor_2.12:2.6.9",
+#            "com.typesafe.akka:akka-http_2.12:10.2.0",
+#            "com.typesafe.akka:akka-stream_2.12:2.6.9",
+#        ],
+#        repositories = [
+#            ARTIFACTORY,
+#        ],
+#    )

@@ -1,0 +1,4 @@
+alias(
+    name = "scala-guice",
+    actual = "@maven//:net_codingwell_scala_guice_2_12",
+)

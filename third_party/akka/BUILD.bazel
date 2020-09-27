@@ -1,3 +1,28 @@
+#alias(
+#    name = "akka-actor",
+#    actual = "@maven//:com_typesafe_akka_akka_actor_2_12",
+#)
+#
+#alias(
+#    name = "akka-http",
+#    actual = "@maven//:com_typesafe_akka_akka_http_2_12",
+#)
+#
+#alias(
+#    name = "akka-stream",
+#    actual = "@maven//:com_typesafe_akka_akka_stream_2_12",
+#)
+#
+#scala_import(
+#    name = "akka",
+#    jars = [
+#        ":akka-actor",
+#        ":akka-http",
+#        ":akka-stream",
+#    ],
+#    visibility = ["//visibility:public"],
+#)
+
 scala_import(
     name = "akka",
     jars = [
