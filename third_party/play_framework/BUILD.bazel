@@ -1,6 +1,7 @@
 scala_import(
     name = "play-framework",
     jars = [
+        "@aopalliance",
         "@async-http",
         "@config",
         "@play",
@@ -11,6 +12,7 @@ scala_import(
         "@play-json",
         "@play-slick",
         "@play-specs",
+        "@play-streams",
         "@play-twirl",
         "@play-ws",
         "@play-ws-standalone",

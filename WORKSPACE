@@ -46,20 +46,14 @@ bind(
     actual = "@io_bazel_rules_play_routes//default-compiler-clis:scala_2_12_play_2_7",
 )
 
-# For some reason, twirl is not loading up. Need to investigate
-# deeper and fix the problem.
 load_play_twirl()
 
-#
 load("@io_bazel_rules_twirl//:workspace.bzl", "twirl_repositories")
 
-#
 twirl_repositories()
 
-#
 load("@twirl//:defs.bzl", twirl_pinned_maven_install = "pinned_maven_install")
 
-#
 twirl_pinned_maven_install()
 
 load("//third_party:dependencies.bzl", "load_deps")

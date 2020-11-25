@@ -10,7 +10,7 @@ scala_binary(
         "//conf:app-conf",
     ],
     deps = [
-        "//app",
+        "//app:app_lib",
     ],
 )
 

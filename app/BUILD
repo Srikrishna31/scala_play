@@ -1,5 +1,5 @@
 scala_library(
-    name = "app",
+    name = "app_lib",
     srcs = [],
     visibility = ["//:__pkg__"],
     deps = [
@@ -14,6 +14,7 @@ scala_library(
         "src/main/scala/Module.scala",
         "src/main/scala/controllers/HomeController.scala",
         ":routes-basic",
+        ":twirl-templates",
     ],
     deps = [
         "//module",
@@ -21,6 +22,7 @@ scala_library(
         "//third_party/play_framework:play-framework",
         "//third_party/scala_guice:scala-guice",
         "@beautiful-scala",
+        "@guice",
         "@javax-inject",
         "@joda-time",
         "@scala-js",
@@ -33,6 +35,16 @@ scala_library(
     srcs = [],
     deps = [
     ],
+)
+
+twirl_templates(
+    name = "twirl-templates",
+    srcs = [
+        "src/main/scala/views/index.scala.html",
+        "src/main/scala/views/main.scala.html",
+    ],
+    include_play_imports = True,
+    source_directory = "app",
 )
 
 play_routes(
