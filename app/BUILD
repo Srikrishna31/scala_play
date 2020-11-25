@@ -18,9 +18,9 @@ scala_library(
     deps = [
         "//module",
         "//third_party/akka",
-        "//third_party/beautiful_scala:beautiful-scala",
         "//third_party/play_framework:play-framework",
         "//third_party/scala_guice:scala-guice",
+        "@beautiful-scala",
         "@javax-inject",
         "@joda-time",
         "@scala-js",

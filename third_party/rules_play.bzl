@@ -13,10 +13,10 @@ def load_play_routes():
 def load_play_twirl():
     # This currently has problems downloading, so is disabled - ie. not used.
     # update version as needed
-    rules_twirl_version = "f0d0cc6951796e0f530ed1470f1b93930e6cb3b1"
+    rules_twirl_version = "9ac789845e3a481fe520af57bd47a4261edb684f"
     http_archive(
         name = "io_bazel_rules_twirl",
-        sha256 = "d52b3db5486f94bad5e0638136b23860b5a7105a35adc60094e1ad60c06c38dc",
+        sha256 = "b1698a2a59b76dc9df233314c2a1ca8cee4a0477665cff5eafd36f92057b2044",
         strip_prefix = "rules_twirl-{}".format(rules_twirl_version),
         type = "zip",
         url = "https://github.com/lucidsoftware/rules_twirl/archive/{}.zip".format(rules_twirl_version),
