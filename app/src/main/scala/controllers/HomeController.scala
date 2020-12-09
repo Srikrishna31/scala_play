@@ -16,10 +16,10 @@ import play.api.libs.ws.WSClient
 import akka.actor.ActorSystem
 import akka.stream.Materializer
 import play.shaded.ahc.org.asynchttpclient.DefaultAsyncHttpClient
-import views.html._
+import views.html.Application._
 
 class HomeController @Inject() (val controllerComponents: ControllerComponents) extends BaseController {
 
-  def index(): Result = Ok(views.html.index.render());
+  def index() = Action {Ok(views.html.Application.index.render()); }
 }
 

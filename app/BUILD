@@ -40,11 +40,11 @@ scala_library(
 twirl_templates(
     name = "twirl-templates",
     srcs = [
-        "src/main/scala/views/index.scala.html",
-        "src/main/scala/views/main.scala.html",
+        "src/main/scala/views/Application/index.scala.html",
+        "src/main/scala/views/Application/main.scala.html",
     ],
     include_play_imports = True,
-    source_directory = "app",
+    source_directory = "src/main/scala/views/Application",
 )
 
 play_routes(
@@ -60,5 +60,5 @@ scala_test(
     name = "test-app",
     srcs = ["src/test/scala/controllers/MainSpec.scala"],
     visibility = ["//visibility:private"],
-    deps = [":app"],
+    deps = [":app_lib"],
 )
