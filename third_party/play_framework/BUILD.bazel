@@ -18,6 +18,7 @@ scala_import(
         "@play-ws-standalone",
         "@play-ws-standalone-json",
         "@play-ws-standalone-xml",
+        "@scala_xml",
         "@shaded-asynchttpclient",
         "@shaded-oauth",
         "@slf4j",

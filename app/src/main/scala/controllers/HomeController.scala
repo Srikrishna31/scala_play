@@ -15,11 +15,21 @@ import play.api.libs.ws.ahc.{AhcWSClientConfigFactory, StandaloneAhcWSClient}
 import play.api.libs.ws.WSClient
 import akka.actor.ActorSystem
 import akka.stream.Materializer
+import play.api.http.Writeable
 import play.shaded.ahc.org.asynchttpclient.DefaultAsyncHttpClient
 import views.html.Application._
 
 class HomeController @Inject() (val controllerComponents: ControllerComponents) extends BaseController {
 
-  def index() = Action {Ok(views.html.Application.index.render()); }
+  def index() =
+    Action { request =>
+      Ok(views.html.defaultpages.todo.render(request))
+    }
+
+//  def index() =
+//    Action { request =>
+//      Ok(views.html.Application.index.render(request))
+//    }
+
 }
 
