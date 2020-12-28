@@ -13,21 +13,18 @@
 #    actual = "@maven//:com_typesafe_akka_akka_stream_2_12",
 #)
 #
-#scala_import(
-#    name = "akka",
-#    jars = [
-#        ":akka-actor",
-#        ":akka-http",
-#        ":akka-stream",
-#    ],
-#    visibility = ["//visibility:public"],
-#)
 
 scala_import(
     name = "akka",
     jars = [
-        "@akka-http",
         "@akka-actor",
+        "@akka-actor-typed",
+        "@akka-http",
+        "@akka-http-core",
+        "@akka-http2-support",
+        "@akka-parsing",
+        "@akka-protobuf",
+        "@akka-slf4j",
         "@akka-stream",
     ],
     visibility = ["//visibility:public"],

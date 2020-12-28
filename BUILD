@@ -5,6 +5,7 @@ scala_binary(
         "-Dapplication.name=my-service",
     ],
     main_class = "play.core.server.ProdServerStart",
+    #    main_class = "play.core.server.DevServerStart",
     resource_strip_prefix = "conf",
     resources = [
         "//conf:app-conf",

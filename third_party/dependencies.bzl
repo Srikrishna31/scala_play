@@ -7,9 +7,11 @@ load("//third_party/play_framework:play_framework.bzl", "load_play_framework", "
 load("//third_party/reactivestreams:reactivestreams.bzl", "load_reactivestreams")
 load("//third_party/scala_js:scala_js.bzl", "load_scala_js")
 load("//third_party/scala_guice:scala_guice.bzl", "load_scala_guice")
+load("//third_party/scala_parser_combinator:scala_parser_combinator.bzl", "load_scalaparsercombinator")
 load("//third_party/scala_xml:scala_xml.bzl", "load_scalaxml")
 load("//third_party/scalaz:scalaz.bzl", "load_scalaz")
 load("//third_party/slf4j:slf4j.bzl", "load_slf4j")
+load("//third_party/slick:slick.bzl", "load_slick")
 load("//third_party/sslconfig:sslconfig.bzl", "load_sslconfig")
 
 def load_deps():
@@ -23,7 +25,9 @@ def load_deps():
     load_reactivestreams()
     load_scala_js()
     load_scala_guice()
+    load_scalaparsercombinator()
     load_scalaxml()
     load_scalaz()
     load_slf4j()
+    load_slick()
     load_sslconfig()

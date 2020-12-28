@@ -17,7 +17,7 @@ import akka.actor.ActorSystem
 import akka.stream.Materializer
 import play.api.http.Writeable
 import play.shaded.ahc.org.asynchttpclient.DefaultAsyncHttpClient
-import views.html.Application._
+//import views.html.Application._
 
 class HomeController @Inject() (val controllerComponents: ControllerComponents) extends BaseController {
 
