@@ -1,3 +1,6 @@
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+load("//third_party:java_deps.bzl", "ARTIFACTORY")
+load("@rules_jvm_external//:specs.bzl", "maven")
 load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 def load_beautiful_scala():
@@ -9,3 +12,18 @@ def load_beautiful_scala():
                 "https://repo1.maven.org/maven2/com/beautiful-scala/scalastyle_2.12/1.5.0/scalastyle_2.12-1.5.0.jar",
             ],
         )
+
+#    maven_install(
+#        name = "maven",
+#        artifacts = [
+#            #            maven.artifact(
+#            #                group = "com.beautiful-scala",
+#            #                artifact = "scalastyle_2.12",
+#            #                version = "1.5.0",
+#            #            ),
+#            "com.beautiful-scala:scalastyle_2.12:1.5.0",
+#        ],
+#        repositories = [
+#            ARTIFACTORY,
+#        ],
+#    )
