@@ -44,7 +44,7 @@ twirl_templates(
         "src/main/scala/views/Application/main.scala.html",
     ],
     include_play_imports = True,
-    source_directory = "src/main/scala/views/Application",
+    source_directory = "src/main/scala/views",
 )
 
 play_routes(
