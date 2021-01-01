@@ -24,6 +24,7 @@ scala_import(
         "@play-ws-standalone",
         "@play-ws-standalone-json",
         "@play-ws-standalone-xml",
+        "@scalatestplus-play",
         "@scala_parser_combinator",
         "@scala_xml",
         "@shaded-asynchttpclient",

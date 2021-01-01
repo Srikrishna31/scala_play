@@ -57,8 +57,13 @@ play_routes(
 )
 
 scala_test(
-    name = "test-app",
-    srcs = ["src/test/scala/controllers/MainSpec.scala"],
+    name = "test-controllers",
+    srcs = ["src/test/scala/controllers/HomeControllerSpec.scala"],
     visibility = ["//visibility:private"],
-    deps = [":app_lib"],
+    deps = [
+        ":controllers",
+        "//third_party/play_framework:play-framework",
+        #        "@scalactic",
+        "@scalatest",
+    ],
 )
