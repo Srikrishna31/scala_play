@@ -14,7 +14,7 @@ class HomeControllerSpec extends PlaySpec with Results {
       val result : Future[Result] = controller.index().apply(FakeRequest())
       val bodyText : String = contentAsString(result)
 
-      bodyText mustBe "Welcome to Play!"
+      bodyText mustBe "\n    \n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Welcome to Play</title>\n</head>\n<body>\n    \n        <h1> Welcome to Play!</h1>\n    \n</body>\n</html>\n"
     }
   }
 }
