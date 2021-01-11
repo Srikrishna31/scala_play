@@ -63,7 +63,6 @@ scala_test(
     deps = [
         ":controllers",
         "//third_party/play_framework:play-framework",
-        #        "@scalactic",
-        "@scalatest",
+        "//third_party/selenium",
     ],
 )

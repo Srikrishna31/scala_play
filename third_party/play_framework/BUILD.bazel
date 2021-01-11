@@ -34,6 +34,7 @@ scala_import(
         "@sslconfig",
         "@reactivestreams",
         "//third_party/akka",
+        "//third_party/selenium",
     ],
     visibility = ["//visibility:public"],
 )

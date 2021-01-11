@@ -1,0 +1,16 @@
+scala_import(
+    name = "selenium",
+    jars = [
+        "@selenium-api",
+        "@selenium-core",
+        "@selenium-chrome-driver",
+        "@selenium-edge-driver",
+        "@selenium-firefox-driver",
+        "@selenium-htmldriver",
+        "@selenium-ie-driver",
+        "@selenium-java",
+        "@selenium-remote-driver",
+        "@selenium-safari-driver",
+    ],
+    visibility = ["//visibility:public"],
+)

@@ -5,7 +5,7 @@ def load_scalactic():
         java_import_external(
             name = "scalactic",
             jar_urls = [
-                "https://repo1.maven.org/maven2/org/scalactic/scalactic_sjs1_2.12/3.1.4/scalactic_sjs1_2.12-3.1.4.jar",
+                "https://repo1.maven.org/maven2/org/scalactic/scalactic_2.12/3.1.4/scalactic_2.12-3.1.4.jar",
             ],
-            jar_sha256 = "781fb872da68d7510e1b12fad1870b6b93e555fa413db8ba790af903dc635efa",
+            jar_sha256 = "b1df40d13f0e077659ecd0cd78be02791b9c0659c2ab0c352e6528306084fbc8",
         )

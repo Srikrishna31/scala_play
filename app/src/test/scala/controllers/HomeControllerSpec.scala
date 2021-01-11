@@ -18,4 +18,3 @@ class HomeControllerSpec extends PlaySpec with Results {
     }
   }
 }
-ne
