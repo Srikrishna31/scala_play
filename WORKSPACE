@@ -18,11 +18,29 @@ load("//third_party:rules_scala.bzl", "load_rules_scala")
 
 load_rules_scala()
 
+# Stores Scala version and other configuration
+# 2.12 is a default version, other versions can be use by passing them explicitly:
+# scala_config(scala_version = "2.11.12")
+load("@io_bazel_rules_scala//:scala_config.bzl", "scala_config")
+
+scala_config()
+
+load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
+
+scala_repositories()
+
 load("//third_party:register_scala.bzl", "register_scala_toolchain")
 
 register_scala_toolchain()
 
 load("//third_party:rules_jvm_external.bzl", "load_rules_jvm_external")
+
+# optional: setup ScalaTest toolchain and dependencies
+load("@io_bazel_rules_scala//testing:scalatest.bzl", "scalatest_repositories", "scalatest_toolchain")
+
+scalatest_repositories()
+
+scalatest_toolchain()
 
 load_rules_jvm_external()
 

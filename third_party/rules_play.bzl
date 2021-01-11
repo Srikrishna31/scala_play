@@ -11,8 +11,6 @@ def load_play_routes():
     )
 
 def load_play_twirl():
-    # This currently has problems downloading, so is disabled - ie. not used.
-    # update version as needed
     rules_twirl_version = "9ac789845e3a481fe520af57bd47a4261edb684f"
     http_archive(
         name = "io_bazel_rules_twirl",

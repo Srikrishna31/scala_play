@@ -23,7 +23,7 @@ alias(
 test_suite(
     name = "app-test",
     tests = [
-        "//app:test-app",
+        "//app:test-controllers",
         "//module:test-module",
     ],
 )
